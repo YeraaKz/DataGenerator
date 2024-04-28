@@ -112,6 +112,7 @@ export default {
     },
     generateSeed() {
       this.seed = Math.floor(Math.random() * 1000000).toString();
+      this.errorsPerRecord = 0;
       this.resetData();
     },
 
