@@ -66,6 +66,10 @@ class DataGeneratorController extends AbstractController
 
     private function applyErrors($text, $locale, $errorsPerRecord,  Generator $faker)
     {
+        if (mb_strlen($text) < $errorsPerRecord) {
+            $errorsPerRecord = mb_strlen($text);
+        }
+
         for ($j = 0; $j < floor($errorsPerRecord); $j++) {
             $text = $this->getErrorType($text, $locale, $faker);
         }
